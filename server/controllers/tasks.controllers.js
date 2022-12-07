@@ -88,8 +88,3 @@ export const deleteTask = async(req, res) => {
   }
 
 };
-
-
-
-
-//Prueba de clone respositorio *ver en la laptop*
