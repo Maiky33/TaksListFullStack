@@ -1,0 +1,14 @@
+.Container_Filter_Calendar{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.Container_task{    
+  background-color: #2f2f3f;
+  overflow-y: auto;
+  height: 300px;
+  border-radius: 20px;
+  padding: 30px;
+}

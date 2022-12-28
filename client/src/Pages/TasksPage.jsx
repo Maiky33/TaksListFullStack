@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import {getTasksRequest} from '../api/tasks.api';
 import TaskCard from '../components/TaskCard'
-
+import TaskFilter from '../components/TaksFilter'
+import TasksCalendar from '../components/TasksCalendar'
+import './css/TasksPage.css'
 
 const TasksPage = () => {
 
@@ -19,15 +21,20 @@ const TasksPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Tasks</h1>
-      {
-        Tasks.map(task => (  
-          <TaskCard task={task} key={task.id}/>
-        ))
-      }
-
-    </div>
+    <>
+      <div className="Container_Filter_Calendar"> 
+        <TaskFilter />
+        <TasksCalendar/>
+      </div>
+      
+      <div className="Container_task">
+        {
+          Tasks.map(task => (  
+            <TaskCard task={task} key={task.id}/>
+          ))
+        }
+      </div>
+    </>
 
   );
 };

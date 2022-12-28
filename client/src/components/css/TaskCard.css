@@ -1,0 +1,50 @@
+.TaskCard{  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 70px;
+    margin: 20px 20px;
+    padding: 0px 25px;
+    border-radius: 50px;
+
+    background-color: #3b3b48;
+    color: #ececec;
+}
+
+
+.TasCard_Checktitle{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.BsCheck2Circle{
+    font-size: 40px;
+    color:#84ec84;
+    cursor: pointer;
+}
+
+.RxCrossCircled{
+    font-size: 40px;
+    color:#ee6262;
+    cursor: pointer;
+}
+
+.TaskCard_DateButtons{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.TaskCard_DateButtons__buttons button{  
+    background-color: #3b3b48;
+    color: #ececec;
+
+    border: none;
+    cursor: pointer;
+    
+    margin-left: 15px;
+    font-size: 20px;
+}
