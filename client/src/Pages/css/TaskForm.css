@@ -1,0 +1,79 @@
+.Container_From{
+    display: flex;
+    justify-content: center;
+}
+
+.Form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 0px 50px;
+    background-color: #313244;
+    color: #ececec;
+    border-radius: 30px;
+    height: 580px;
+}
+
+.From_Title{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.Title{
+    font-size: 30px;
+}
+
+.Title_input{
+    width: 350px;
+    background-color: #434357;
+    color: #ececec;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+}
+
+
+.From_Description{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.Description{   
+    font-size: 30px;
+}
+
+.Description_input{ 
+    width: 350px;
+    height: 125px;
+    background-color: #434357;
+    color: #ececec;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+}
+
+.FromContainer_Button{
+    display: flex;
+    justify-content: center;
+}
+
+.From_Button{   
+    background-color: #ececec;
+    color: #313244;
+    font-size: 20px;
+    width: 150px;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.From_Button:hover{
+    width: 149px;
+    padding: 14px;
+}

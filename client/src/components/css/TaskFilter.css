@@ -7,13 +7,17 @@
 
 .Filters_box{
     width: 100%;
-
     margin: 25px;
     padding: 50px;
 
+    cursor: pointer;
     text-align: center;
     border-radius: 25px;
 
     background-color: #3b3b48;
     color:#ececec;
+}
+
+.Filters_box:hover{ 
+    padding: 49px;
 }
