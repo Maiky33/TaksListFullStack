@@ -1,5 +1,5 @@
 import {createContext, useContext,useState} from 'react';
-import {getTasksRequest,deletedTasksRequest,createTaskRequest} from '../api/tasks.api';
+import {getTasksRequest,getTaskRequest,deletedTasksRequest,createTaskRequest,updateTaksRequest,updateDoneRequest} from '../api/tasks.api';
 
 export const TaskContext = createContext()
 
@@ -18,6 +18,15 @@ export const TaskContextProvider = ({children})=>{
     const loadTasks = async() => {
         const response = await getTasksRequest() //resibimos las tareas y las guardamos en una constante
         setTasks(response.data); //actualizamos la variable Tasks con la funcion setTasks(response.data)
+    }
+
+    const getTask = async(id)=>{ 
+        try{    
+            const response = await getTaskRequest(id)
+            return response.data
+        }catch(error){  
+            console.log(error);
+        }  
     }
 
     const createTasks = async(task)=>{   
@@ -40,11 +49,31 @@ export const TaskContextProvider = ({children})=>{
         }
     }
 
-    
+    const update = async(id,newFields)=>{    
+        try{    
+            await updateTaksRequest(id,newFields)
+        }catch(error){  
+            console.log(error);
+        }
+    }
+
+    const updateDone = async(id)=>{
+        try{    
+            const taskFound = Tasks.find((task)=> task.id === id); 
+            await updateDoneRequest(id, taskFound.done === 0 ? 1 : 0)
+            setTasks(
+                Tasks.map((task) => 
+                    task.id === id ? { ...task, done: !task.done}:task
+                )
+            );
+        }catch(error){  
+            console.log(error);
+        }
+    }
 
 
     return( 
-        <TaskContext.Provider value={{Tasks,loadTasks,DeleteTask,createTasks}}>
+        <TaskContext.Provider value={{Tasks,loadTasks,getTask,DeleteTask,createTasks,update,updateDone}}>
             {children}
         </TaskContext.Provider>
     )

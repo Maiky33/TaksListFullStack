@@ -1,23 +1,48 @@
 import { Formik, Form } from "formik";
 import {useTasks} from '../context/TaskContext';
+import {useParams,useNavigate} from 'react-router-dom';
 import './css/TaskForm.css'
+import { useEffect, useState } from "react";
 
 const TaskForm = () => {
 
-  const {createTasks} = useTasks()
+  const {createTasks,getTask,update} = useTasks()
+
+  const [Task, setTask]= useState({ 
+    title:"",
+    description:""
+  })
+
+  const params = useParams()
+
+  const navegite = useNavigate()
+
+  useEffect(()=>{ 
+    const loadTask = async() =>{ 
+      if(params.id){
+       const task = await getTask(params.id)
+       setTask(task)
+      }
+    }
+    loadTask();
+  })
 
   return (
     <div className="Container_From">
       <Formik //formik libreria que nos ayuda a crar y capturar los estados de un formulario
-        initialValues={{//describimos los valores que querremos en este caso title,description, lo cual nos ahorra el useState useEfect etc
-          title: "",
-          description: "",
-        }}
-
-        onSubmit={async (values, actions) => {//resivimos los valores
+        initialValues={Task}
+        enableReinitialize={true}
+        onSubmit={async (values) => {//resivimos los valores
           console.log(values); //mostramos los valore por consola
-          createTasks(values)
-          actions.resetForm()
+
+          if(params.id){ 
+            await update(params.id,values)
+            navegite('/');
+          }else{
+            await createTasks(values)
+            navegite('/');
+          }
+          
         }}
       >
         {(
