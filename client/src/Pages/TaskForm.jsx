@@ -1,8 +1,11 @@
 import { Formik, Form } from "formik";
-import { createTaskRequest } from '../api/tasks.api'
+import {useTasks} from '../context/TaskContext';
 import './css/TaskForm.css'
 
 const TaskForm = () => {
+
+  const {createTasks} = useTasks()
+
   return (
     <div className="Container_From">
       <Formik //formik libreria que nos ayuda a crar y capturar los estados de un formulario
@@ -13,14 +16,8 @@ const TaskForm = () => {
 
         onSubmit={async (values, actions) => {//resivimos los valores
           console.log(values); //mostramos los valore por consola
-          try {
-            const response = await createTaskRequest(values); //usamos la funcion para conectar con el backend y enviarle values, que es la tarea que recibira el backend
-
-            console.log(response);
-            actions.resetForm()
-          } catch (error) {
-            console.log(error);
-          }
+          createTasks(values)
+          actions.resetForm()
         }}
       >
         {(

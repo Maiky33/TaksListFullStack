@@ -1,24 +1,17 @@
-import { useEffect, useState } from "react";
-import {getTasksRequest} from '../api/tasks.api';
+import { useEffect } from "react";
 import TaskCard from '../components/TaskCard'
 import TaskFilter from '../components/TaksFilter'
 import TasksCalendar from '../components/TasksCalendar'
+import {useTasks} from '../context/TaskContext';
 import './css/TasksPage.css'
 
 const TasksPage = () => {
 
-
-  const [Tasks, setTasks] = useState([])
+  const {Tasks,loadTasks} = useTasks();
+  
 
   useEffect(() => {//para que se ejecute al iniciar la pagina
-
-    const loadTasks = async() => {
-      const response = await getTasksRequest() //resibimos las tareas y las guardamos en una constante
-      setTasks(response.data); //actualizamos la variable Tasks con la funcion setTasks(response.data)
-    }
-
     loadTasks();//llamamos la funcion loadTasks para ver las tareas al abrir la aplicacion
-
   }, []);
 
   const renderMain = () => { //hacemos un esto para poder hacer la condicional, en caso de no haber tareas
