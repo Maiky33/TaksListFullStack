@@ -34,7 +34,7 @@ const TaskForm = () => {
         enableReinitialize={true}
         onSubmit={async (values) => {//resivimos los valores
           console.log(values); //mostramos los valore por consola
-
+ 
           if(params.id){ 
             await update(params.id,values)
             navegite('/');

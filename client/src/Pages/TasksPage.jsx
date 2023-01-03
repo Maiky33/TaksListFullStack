@@ -12,11 +12,12 @@ const TasksPage = () => {
 
   useEffect(() => {//para que se ejecute al iniciar la pagina
     loadTasks();//llamamos la funcion loadTasks para ver las tareas al abrir la aplicacion
+    //eslint-disable-next-line
   }, []);
 
   const renderMain = () => { //hacemos un esto para poder hacer la condicional, en caso de no haber tareas
     if(Tasks.length === 0) return <h2 className="Notasksyet">No tasks yet</h2> // si tasks.length es igual  a cero
-    return Tasks.map(task => (<TaskCard task={task} key={task.id}/>)) // si tasks no es igual a cero recorremos con un map
+    return Tasks.map((task, index) => (<TaskCard task={task} key={index}/>)) // si tasks no es igual a cero recorremos con un map
   }
 
   return (
