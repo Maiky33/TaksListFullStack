@@ -3,11 +3,11 @@ import TasksPage from './Pages/TasksPage.jsx'
 import TaskForm from './Pages/TaskForm.jsx'
 import NotFound from './Pages/NotFound.jsx';
 import Navbar from './components/Navbar'
-import {TaskContextProvider} from './context/TaskContext'
+import {TaskContextProvider} from './context/TaskContext'//importamos para usar las funciones que retorna este componente
 import './css/App.css';
 
 function App() {
-  return (
+  return (//importamos y usamos el textContentProvider aqui para que todos los componentes puedan acceder a este
     <TaskContextProvider> 
       <div className='App_Background'>
         <Navbar/>

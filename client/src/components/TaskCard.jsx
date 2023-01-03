@@ -6,12 +6,12 @@ import "./css/TaskCard.css";
 
 const TaskCard = ({ task }) => {
   
-  const { DeleteTask, updateDone } = useTasks();
+  const { DeleteTask, updateDone } = useTasks(); // llamamos las funcione que vienen de context
 
-  const navegate = useNavigate();
+  const navegate = useNavigate(); //para redireccionar
 
-  const handleDone = async () => {
-    await updateDone(task.id);
+  const handleDone = async () => { //hacemos una funcion asincrona 
+    await updateDone(task.id); //llamamos la funcion para acu=tualizar el done y esperamos el task id 
   };
 
   return (
@@ -22,14 +22,14 @@ const TaskCard = ({ task }) => {
           {task.done === 1 ? (
             <BsCheck2Circle
               onClick={() => {
-                handleDone(task.done);
+                handleDone(task.done);// en un onClick llamamos la funcion para que al momento de hacer click se ejecute
               }}
               className="BsCheck2Circle"
             />
           ) : (
             <RxCrossCircled
               onClick={() => {
-                handleDone(task.done);
+                handleDone(task.done);// en un onClick llamamos la funcion para que al momento de hacer click se ejecute
               }}
               className="RxCrossCircled"
             />
@@ -54,5 +54,8 @@ const TaskCard = ({ task }) => {
     </div>
   );
 };
+
+//usamos navegite para redireccionar al from con la id, al hacer click en el button de editar 
+// llamamos la funcion para eliminar la tarea del backend y pasamos la id
 
 export default TaskCard;
