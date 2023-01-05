@@ -4,8 +4,17 @@
     font-family:'Roboto', sans-serif;
 }
 
-.App_Background{ 
+
+.Ligthmode{ 
     background: rgb(96, 97, 109);
     background: linear-gradient(90deg, rgba(96, 97, 109, 1) 0%, rgba(52, 55, 91, 1) 100%);
     padding: 50px 150px;
 }
+
+.dartmode{ 
+    background: rgb(45, 53, 70);
+    background: linear-gradient(90deg, rgba(45, 53, 70, 1) 0%, rgba(24, 24, 52, 1) 100%);
+    padding: 50px 150px;
+}
+
+

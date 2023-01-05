@@ -2,24 +2,28 @@ import { BsCheck2Circle, BsTrash } from "react-icons/bs";
 import { RxCrossCircled, RxPencil2 } from "react-icons/rx";
 import { useTasks } from "../context/TaskContext";
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from 'usehooks-ts'
 import "./css/TaskCard.css";
 
 const TaskCard = ({ task }) => {
   
-  const { DeleteTask, updateDone } = useTasks(); // llamamos las funcione que vienen de context
+  const { DeleteTask, updateDone, } = useTasks(); // llamamos las funcione que vienen de context
+
+  const [Active] = useLocalStorage('darkTheme', true)
+
 
   const navegate = useNavigate(); //para redireccionar
 
   const handleDone = async () => { //hacemos una funcion asincrona 
-    await updateDone(task.id); //llamamos la funcion para acu=tualizar el done y esperamos el task id 
+    await updateDone(task.id); //llamamos la funcion para acutualizar el done y esperamos el task id 
   };
 
   return (
-    <div className="TaskCard">
+    <div className={Active? "TaskCard" : "TaskCardDarth"}>
       <div className="TasCard_Checktitle">
         <span>
 
-          {task.done === 1 ? (
+          {task.done? (
             <BsCheck2Circle
               onClick={() => {
                 handleDone(task.done);// en un onClick llamamos la funcion para que al momento de hacer click se ejecute

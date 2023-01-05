@@ -11,6 +11,19 @@
   color: #ececec;
 }
 
+.NavDarth{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  height: 80px;
+  margin-bottom: 50px;
+  
+  background-color: #15182b;
+  border-radius: 50px;
+  color: #ececec;
+}
+
 .Nav_icon{  
   font-size: 40px;
   cursor: pointer;
@@ -44,4 +57,5 @@
 
 .Nav_link{
   color: #ececec;
+  cursor: pointer;
 }

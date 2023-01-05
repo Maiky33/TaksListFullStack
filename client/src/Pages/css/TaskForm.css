@@ -16,6 +16,19 @@
     height: 580px;
 }
 
+.FormDart{  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 0px 50px;
+    background-color: #131728;
+    color: #ececec;
+    border-radius: 30px;
+    height: 580px;
+}
+
 .From_Title{
     display: flex;
     flex-direction: column;
@@ -37,6 +50,16 @@
 }
 
 
+.Title_inputDart{   
+    width: 350px;
+    background-color: #1e2339;
+    color: #ececec;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+}
+
 .From_Description{
     display: flex;
     flex-direction: column;
@@ -51,6 +74,17 @@
     width: 350px;
     height: 125px;
     background-color: #434357;
+    color: #ececec;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+}
+
+.Description_inputDart{ 
+    width: 350px;
+    height: 125px;
+    background-color: #1e2339;
     color: #ececec;
     border: none;
     border-radius: 20px;

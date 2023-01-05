@@ -3,8 +3,12 @@ import {useTasks} from '../context/TaskContext';
 import {useParams,useNavigate} from 'react-router-dom';
 import './css/TaskForm.css'
 import { useEffect, useState } from "react";
+import { useLocalStorage } from 'usehooks-ts'
+
 
 const TaskForm = () => {
+
+  const [Active] = useLocalStorage('darkTheme', true)
 
   const {createTasks,getTask,update} = useTasks() //llamaoms del context las funciones 
 
@@ -52,13 +56,13 @@ const TaskForm = () => {
           
         ) => (
 
-          <Form className="Form" onSubmit={handleSubmit}>
+          <Form className={Active? "Form" : "FormDart"} onSubmit={handleSubmit}>
 
             <div className="From_Title"> 
 
               <label className="Title">Title</label>
               <input
-                className="Title_input"
+                className={Active? "Title_input" : "Title_inputDart"}
                 type="text"
                 name="title"//el name es muy importante en esta libreria para poder ubicar el campo del formulario y asi poder tenerlos en (values)
                 placeholder="Write a Title"
@@ -72,7 +76,7 @@ const TaskForm = () => {
 
               <label className="Description">Description</label>
               <textarea
-                className="Description_input"
+                className={Active? "Description_input" : "Description_inputDart"}
                 name="description"
                 rows="3"
                 placeholder="write a description"

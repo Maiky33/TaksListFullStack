@@ -12,6 +12,20 @@
     color: #ececec;
 }
 
+.Calendar_clockDart{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    width: 100%;
+    padding: 20px;
+    
+    border-radius: 20px;
+    background-color: #131728;
+    color: #ececec;
+}
+
 .materialui{
     background-color:#ececec;
     border-radius: 15px;

@@ -75,7 +75,7 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
       await updateDoneRequest(id, taskFound.done === 0 ? true : false);//si encuentra el id le decimos que a la tarea si el done es 0 lo pase a true(1) y en caso contrario lo pase a false(0)
 
       loadTasks();//si todo sale bien ejecutamos la funcion loadTask la cual actualiza las tareas
-
+      
     } catch (error) {
       console.log(error);
     }

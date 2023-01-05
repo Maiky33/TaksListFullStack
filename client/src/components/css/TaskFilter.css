@@ -5,6 +5,13 @@
     background-color: #2f2f3f;
 }
 
+.FiltersDarth{  
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    background-color: #131728;
+}
+
 .Filters_box{
     width: 100%;
     margin: 25px;
@@ -16,6 +23,19 @@
 
     background-color: #3b3b48;
     color:#ececec;
+}
+
+.Filters_boxDart{
+    width: 100%;
+    margin: 25px;
+    padding: 50px;
+    
+    cursor: pointer;
+    text-align: center;
+    border-radius: 25px;
+    
+    background-color: #1a1e2e;
+    color: #ececec;
 }
 
 .Filters_box:hover{ 
