@@ -61,3 +61,39 @@
     margin-left: 15px;
     font-size: 20px;
 }
+
+.TaskCard_DateButtons__buttonsDart button{ 
+    background-color: #1a1e2e;
+    color: #ececec;
+    
+    border: none;
+    cursor: pointer;
+    
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+
+@media screen and (max-width:1040px) {
+    .date{  
+        display: none;
+    }
+}
+
+@media screen and (max-width:898px) {
+    .description{
+        display: none;
+    }
+}
+
+@media screen and (max-width:546px) {
+    .title{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:395px) {
+    .title {
+        font-size: 15px;
+    }
+}

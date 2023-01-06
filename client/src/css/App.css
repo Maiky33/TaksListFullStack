@@ -18,3 +18,22 @@
 }
 
 
+
+@media screen and (max-width:810px){
+    .Ligthmode {
+        padding: 50px;
+    }
+    
+    .dartmode {
+        padding: 50px;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .Ligthmode {
+        padding: 15px;
+    }
+    .dartmode {
+        padding: 15px;
+    }
+}

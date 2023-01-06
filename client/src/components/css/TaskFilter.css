@@ -38,6 +38,86 @@
     color: #ececec;
 }
 
-.Filters_box:hover{ 
+.Filters_box:hover {
     padding: 49px;
+}
+.Filters_boxDart:hover{ 
+    padding: 49px;
+}
+
+@media screen and (max-width:1354px) {
+    .Filters {
+        width: 600px;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .FiltersDarth {
+        width: 600px;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .Filters_box {
+        margin: 25px 10px;
+        padding: 40px;
+    }
+    
+    .Filters_boxDart {
+        margin: 25px 10px;
+        padding: 40px;
+    }
+
+    .Filters_box:hover {
+        padding: 39px;
+    }
+    .Filters_boxDart:hover {
+        padding: 39px;
+    }
+}
+
+@media screen and (max-width:1154px) {  
+    .Filters {
+        width: 100%;
+        padding: 0px 50px;
+    }
+    
+    .FiltersDarth {
+        width: 100%;
+        padding: 0px 50px;
+    }
+    
+}
+
+@media screen and (max-width:994px) {
+    .Filters{   
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .FiltersDarth{
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .Filters_box {
+        width: 200px;
+        margin: 10px 0px;
+        padding: 20px;
+    }
+    
+    .Filters_boxDart {
+        width: 200px;
+        margin: 10px 0px;
+        padding: 20px;
+    }
+
+    .Filters_box:hover{
+        padding: 19px;
+    }
+
+    .Filters_boxDart:hover {
+        padding: 19px;
+    }
 }

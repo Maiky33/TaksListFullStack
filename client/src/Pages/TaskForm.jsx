@@ -62,7 +62,8 @@ const TaskForm = () => {
 
               <label className="Title">Title</label>
               <input
-                className={Active? "Title_input" : "Title_inputDart"}
+                maxlength="11"
+                className={Active ? "Title_input" : "Title_inputDart"}
                 type="text"
                 name="title"//el name es muy importante en esta libreria para poder ubicar el campo del formulario y asi poder tenerlos en (values)
                 placeholder="Write a Title"
@@ -76,6 +77,7 @@ const TaskForm = () => {
 
               <label className="Description">Description</label>
               <textarea
+                maxlength="17"
                 className={Active? "Description_input" : "Description_inputDart"}
                 name="description"
                 rows="3"

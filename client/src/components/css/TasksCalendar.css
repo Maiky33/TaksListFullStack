@@ -27,12 +27,46 @@
 }
 
 .materialui{
-    background-color:#ececec;
-    border-radius: 15px;
+    background-color:#cfc0c0;
+    height: 50px;
+    border-radius: 10px;
 }
 
 .Calentar_Column{   
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+
+@media screen and (max-width:1154px) {  
+    .Calendar_clock{
+        display: none;
+    }
+    .Calendar_clockDart{
+        display: none;
+    }
+}
+
+@media screen and (max-width:994px) {
+    .Calendar_clock {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+    }
+    .Calendar_clockDart {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+    }
+}
+
+@media screen and (max-width:542px) {
+    .Calendar_clock {
+        display: none;
+    }
+    
+    .Calendar_clockDart {
+        display: none;
+    }
 }

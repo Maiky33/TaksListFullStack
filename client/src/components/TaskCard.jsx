@@ -39,14 +39,14 @@ const TaskCard = ({ task }) => {
             />
           )}
         </span>
-        <h2>{task.title}</h2>
+        <h2 className="title">{task.title}</h2>
       </div>
 
-      <p>{task.description}</p>
+      <p className="description">{task.description}</p>
 
       <div className="TaskCard_DateButtons">
-        <p>{task.createAt}</p>
-        <div className="TaskCard_DateButtons__buttons">
+        <p className="date">{task.createAt}</p>
+        <div className={Active? "TaskCard_DateButtons__buttons" : "TaskCard_DateButtons__buttonsDart"}>
           <button onClick={() => navegate(`/edit/${task.id}`)}>
             <RxPencil2 />
           </button>

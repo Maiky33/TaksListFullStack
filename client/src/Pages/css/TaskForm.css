@@ -111,3 +111,59 @@
     width: 149px;
     padding: 14px;
 }
+
+@media screen and (min-height:1080px) {  
+    .Container_From{    
+        height: 1080px;
+    }
+}
+
+@media screen and (max-height:926px) {
+    .Container_From {
+        height: 766px;
+    }
+}
+
+
+
+@media screen and (max-width:600px) {
+
+    .Form{  
+        gap: 20px;
+    }
+    .FormDart{  
+        gap: 20px;
+    }
+
+    .Title_input{
+        width: 200px;
+    }
+    .Title_inputDart{   
+        width: 200px;
+    }
+    .Description_input{ 
+        width: 200px;
+    }
+    .Description_inputDart{ 
+        width: 200px;
+    }
+}
+
+@media screen and (max-width:362px) {
+    .Title_input {
+        width: 150px;
+    }
+
+    .Title_inputDart {
+        width: 150px;
+    }
+
+    .Description_input {
+        width: 150px;
+    }
+
+    .Description_inputDart {
+        width: 150px;
+    }
+}
+

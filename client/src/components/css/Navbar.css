@@ -59,3 +59,45 @@
   color: #ececec;
   cursor: pointer;
 }
+
+
+@media screen and (max-width:1354px) {
+  .Nav_greeting {
+    font-size: 20px;
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width:1040px) {/*tarjetas cambio misma medida*/
+  .Nav_greeting {
+    display: none;
+  }
+}
+
+@media screen and (max-width:814px) {
+  .Nav_input {
+    width: 50px;
+    height: 40px;
+    padding: 0px 20px;
+    background-color: #434357;
+    color: #ececec;
+    border: none;
+    border-radius: 13px;
+    outline: none;
+  }
+}
+
+@media screen and (max-width:440px) {
+  .Nav_icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width:378px){  
+  .Nav_ul {
+    display: flex;
+    gap: 8px;
+    font-size: 25px;
+    list-style: none;
+  }
+}
