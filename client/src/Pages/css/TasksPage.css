@@ -27,6 +27,37 @@
   color: #ececec;
 }
 
+@media screen and (max-width:322px) {
+  .Container_Filter_Calendar{ 
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width:355px) { 
+  .Container_task{  
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Container_taskDart{
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-height:848px) {
+  .Container_task {
+    height: 410px;
+  }
+  .Container_taskDart {
+    height: 410px;
+  }
+}
+
 @media screen and (min-height:1080px) {
   .Container_task{
     height: 610px;
@@ -35,3 +66,4 @@
     height: 610px;
   }
 }
+

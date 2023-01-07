@@ -14,9 +14,17 @@ import "./css/Navbar.css";
 const Navbar = () => {
 
   const [Active, setActive] = useLocalStorage('darkTheme', true)
+  const [Search, setSearch] = useLocalStorage('Search', '')
+
+
   const toggleTheme = () => {
     setActive((prevValue) => !prevValue)
   }
+
+  const onChange = (e) => {
+    setSearch(e.target.value)
+  }
+
 
 
   return (
@@ -26,7 +34,7 @@ const Navbar = () => {
         <AiFillHome className="Nav_icon" />
       </Link>
       
-      <input className="Nav_input" placeholder="Search" />
+      <input onChange={onChange} value={Search} className="Nav_input" placeholder="Search" />
 
       <p className="Nav_greeting">Good evening, Maiky</p>
 

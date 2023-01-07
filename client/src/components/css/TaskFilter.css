@@ -121,3 +121,12 @@
         padding: 19px;
     }
 }
+
+@media screen and (max-width:290px) {
+    .Filters_box{    
+        width: 190px;
+    }
+    .Filters_boxDart{
+        width: 190px;
+    }
+}

@@ -97,3 +97,12 @@
         font-size: 15px;
     }
 }
+
+@media screen and (max-width:355px) {
+    .TaskCard{  
+        width: 180px;
+    }
+    .TaskCardDarth{
+        width: 180px;
+    }
+}

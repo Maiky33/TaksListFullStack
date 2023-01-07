@@ -81,21 +81,6 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
     }
   };
 
-  const All = () => { 
-    loadTasks();
-  }
-
-  const Soples = async () => {  
-    setTasks(Tasks.filter((task) => task.done === 0))
-  }
-
-  const Completed = () => {
-
-    setTasks(Tasks.filter((task) => task.done === 1))
-    
-  }
-  
-
   return ( //retornamos las funciones con la etiqueta TaskContext.Porvider pasamos las funciones en el value y pasamos el children que son los multiples componentes que van acceder a estas
     
     <TaskContext.Provider
@@ -107,9 +92,6 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
         createTasks,
         update,
         updateDone,
-        All,
-        Soples,
-        Completed,
       }}
     >
       {children}
