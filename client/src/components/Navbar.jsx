@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useLocalStorage } from 'usehooks-ts'
+import { useLocalStorage } from 'usehooks-ts' //libreria LocalHostStorage
 import { AiFillHome } from "react-icons/ai";
 import {
   BsFillFilePostFill,
@@ -13,14 +13,15 @@ import "./css/Navbar.css";
 
 const Navbar = () => {
 
-  const [Active, setActive] = useLocalStorage('darkTheme', true)
+  //usamos la libreria para enviar los datos al localStorage
+  const [Active, setActive] = useLocalStorage('darkTheme', true) 
   const [Search, setSearch] = useLocalStorage('Search', '')
 
 
+  //Funciones actualizar el dato de localStorage
   const toggleTheme = () => {
     setActive((prevValue) => !prevValue)
   }
-
   const onChange = (e) => {
     setSearch(e.target.value)
   }

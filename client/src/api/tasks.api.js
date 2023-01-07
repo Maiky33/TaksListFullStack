@@ -1,4 +1,7 @@
+//Para comunicarnos con la base de datos creada, (hacer peticiones)
+
 import axios from "axios"; //usamos axios para hacer la coneccion al backend
+
 
 
 export const getTasksRequest = async () =>

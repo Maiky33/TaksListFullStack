@@ -1,63 +1,93 @@
-import { useEffect, useState } from "react";
 import TaskCard from "../components/TaskCard";
 import TaskFilter from "../components/TaksFilter";
 import TasksCalendar from "../components/TasksCalendar";
+
+import { useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { useTasks } from "../context/TaskContext";
 import "./css/TasksPage.css";
 
+
+// La pagina inicial
 const TasksPage = () => {
-  const { Tasks, loadTasks } = useTasks(); // llamamos del contexto las funciones
+
+  // llamamos del contexto las funciones para cargar las funciones 
+  const { Tasks, loadTasks } = useTasks(); 
+
+  // Resivimos en Active el valor de localStorage (true/false) para cambiar el tema
   const [Active] = useLocalStorage("darkTheme", true);
 
-  const [Filterselected, setFilterselected] = useState("all");
+
+  // Creamos un useState para saber que campo estamos dando click y actulizamos segun la funcion
+  const [Filterselected, setFilterselected] = useState("all");// empieza en all para traer todas las tareas
 
   useEffect(() => {
-    //para que se ejecute al iniciar la pagina
-    loadTasks(); //llamamos la funcion loadTasks para ver las tareas al abrir la aplicacion
+    // Usamos useEffect para que al iniciar la pagina se actualize Tasks
+    loadTasks(); // llamamos la funcion loadTasks para ver las tareas al abrir la aplicacion
     //eslint-disable-next-line
   }, []);
 
-  //Filters
-  const handleClickAll = () => {
-    setFilterselected("all");
+  //Filters funciones //Se pasan por parametros a <TaskFilter/>
+  const handleClickAll = () => { 
+    setFilterselected("all"); //actualiza el estado con el valor "ALL"
   };
   const handleClickSoples = () => {
-    setFilterselected("incomplete");
+    setFilterselected("incomplete"); //actualiza el estado con el valor "incomplete"
   };
   const handleClickCompleted = () => {
-    setFilterselected("complete");
+    setFilterselected("complete"); //actualiza el estado con el valor "complete"
   };
 
+  // Resivimos en Search, el valor Search del LocalStorage
   const [Search] = useLocalStorage("Search", "");
 
-  const renderMain = () => {
-    //hacemos un esto para poder hacer la condicional, en caso de no haber tareas
 
+  // hacemos un esto para poder hacer la condicional, en caso de no haber tareas y renderizar las tareas
+  const renderMain = () => {
+
+    // Creamos variable
     let newTask = [];
 
+    // Hacemos una condicional 
+   
     if (Filterselected === "all") {
-      newTask = Tasks;
+      // Si el valor Filterselected es igual a "all"  
+      newTask = Tasks; 
+      // Quiero que newTask sea igual a Tasks(osea todas las tareas)
+      
     } else if (Filterselected === "complete") {
+      // Pero en caso de que Filterselected sea igual "complete"
       newTask = Tasks.filter((task) => task.done === 1);
+      // Quiero filtrar todas las tareas en donde el done sea igual a 1 y lo guardo el la variable newTask 
+
     } else if (Filterselected === "incomplete") {
+      // Pero en caso de que Filter sea igual "incomplete" 
       newTask = Tasks.filter((task) => task.done === 0);
+      // Quiero filtrar todas las tareas en donde el done sea igual a 0 y lo guardo el la variable newTask 
     }
 
-    const newTasksWithSearch = newTask?.filter(item => {
-      if(item?.title?.includes(Search)){
-        return true
+    // Filtramos las tareas de NewTask y guardamos en newTasksWithSearch
+    const newTasksWithSearch = newTask?.filter(task => {
+
+      // Si task.title icluye o es igual a Search(el valor que resivimos del LocalStorage)
+      if(task?.title?.includes(Search)){
+        return true 
       }else{
-        return false
+        return false 
       }
     })
 
-    if (newTasksWithSearch.length === 0)
-    return <h2 className="Notasksyet">No tasks yet</h2>; // si tasks.length es igual  a cero
-    return newTasksWithSearch.map((task) => <TaskCard task={task} key={task.id} />); // si tasks no es igual a cero recorremos con un map
+    
+    //POR ULTIMO SI newTask PASA POR TODOS LOS FILTROS //
+
+    // si newTasksWithSearch.length es igual  a cero
+    if (newTasksWithSearch.length === 0) return <h2 className="Notasksyet">No tasks yet</h2>; 
+    
+    // si newTasksWithSearch no es igual a cero recorremos con un map
+    return newTasksWithSearch.map((task) => <TaskCard task={task} key={task.id} />); 
   };
 
-  return (
+  return (// Enviamos por parametros a <TaskFilter/> las funciones 
     <>
       <div className="Container_Filter_Calendar">
         <TaskFilter

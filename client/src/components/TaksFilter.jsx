@@ -1,11 +1,15 @@
+//importamos libreria useLocalStorage para resivir los datos del localStorage
+import { useLocalStorage } from 'usehooks-ts' 
 import './css/TaskFilter.css'
-import { useLocalStorage } from 'usehooks-ts'
 
 
+//Filtros resivimos por parametros las funciones para usarlas en los filtros  
 const TaskFilter = ({handleClickCompleted,handleClickAll,handleClickSoples}) => {
 
-  const [Active] = useLocalStorage('darkTheme', true)
+  //resivimos el dato en este caso (false/true) para cambiar el tema 
+  const [Active] = useLocalStorage('darkTheme', true) 
 
+  //Ejecutamos las funciones resividas en un onClick 
   return (
     <div className={Active? "Filters" : "FiltersDarth"}>
       <div onClick={()=>handleClickAll()} className={Active?'Filters_box':'Filters_boxDart'}>All</div>
