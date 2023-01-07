@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLocalStorage } from 'usehooks-ts'
-import { GiHamburgerMenu } from "react-icons/gi";
+import { AiFillHome } from "react-icons/ai";
 import {
   BsFillFilePostFill,
   BsClipboardPlus,
@@ -13,18 +13,19 @@ import "./css/Navbar.css";
 
 const Navbar = () => {
 
-  
   const [Active, setActive] = useLocalStorage('darkTheme', true)
- 
   const toggleTheme = () => {
     setActive((prevValue) => !prevValue)
   }
 
 
   return (
-    <div className={Active? "Nav": "NavDarth"}>
-      <GiHamburgerMenu className="Nav_icon" />
-
+    <div className={Active ? "Nav" : "NavDarth"}>
+      
+      <Link className="Nav_link" to="/">
+        <AiFillHome className="Nav_icon" />
+      </Link>
+      
       <input className="Nav_input" placeholder="Search" />
 
       <p className="Nav_greeting">Good evening, Maiky</p>

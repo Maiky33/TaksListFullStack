@@ -7,30 +7,48 @@ import {useTasks} from '../context/TaskContext';
 import './css/TasksPage.css'
 
 const TasksPage = () => {
-
-  const {Tasks,loadTasks} = useTasks(); //lamamos del contexto las funciones
   
+  const { Tasks, loadTasks,All,Soples,Completed } = useTasks(); // llamamos del contexto las funciones
   const [Active] = useLocalStorage('darkTheme', true)
-  
 
   useEffect(() => {//para que se ejecute al iniciar la pagina
     loadTasks();//llamamos la funcion loadTasks para ver las tareas al abrir la aplicacion
     //eslint-disable-next-line
   }, []);
   
+
+
+  //Filters
+
+  const handleClickAll = () => {  
+    All();
+  }
+
+  const handleClickSoples = () => {
+    Soples();
+  }
+  const handleClickCompleted = () => { 
+    Completed();
+  }
+
+
   const renderMain = () => { //hacemos un esto para poder hacer la condicional, en caso de no haber tareas
     if(Tasks.length === 0) return <h2 className="Notasksyet">No tasks yet</h2> // si tasks.length es igual  a cero
     return Tasks.map((task) => (<TaskCard task={task} key={task.id}/>)) // si tasks no es igual a cero recorremos con un map
   }
 
+  
   return (
     <>
       <div className="Container_Filter_Calendar"> 
-        <TaskFilter />
+        <TaskFilter
+          handleClickSoples={handleClickSoples}
+          handleClickAll={handleClickAll}
+          handleClickCompleted={handleClickCompleted} />
         <TasksCalendar/>
       </div>
       
-      <div className={Active? "Container_task" : "Container_taskDart"}>
+      <div className={Active ? "Container_task" : "Container_taskDart"}>
         {renderMain()} 
       </div>
     </>

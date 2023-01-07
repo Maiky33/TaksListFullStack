@@ -22,7 +22,8 @@ export const useTasks = () => { //creamos una funcion useTask y exportamos para 
 
 export const TaskContextProvider = ({ children }) => {//exportamos esta funcion para poder para poder usar el context en App, ya que esta es la que agrupa todos los componentes,(funciones) para utilizarlas desde el context, el children son los multiples componentes que querremos que accedas al contexto
   
-  const [Tasks, setTasks] = useState([]); //hacemos aqui el use state para resibir las tareas 
+  const [Tasks, setTasks] = useState([]); //hacemos aqui el use state para resibir las tareas
+
 
   const loadTasks = async () => {
     const response = await getTasksRequest(); //resibimos las tareas desde el backend y las guardamos en una constante
@@ -51,7 +52,6 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
   
     try { // usamos try catch para obtener el error en caso de que alla
       deletedTasksRequest(id); // llamamos la funcion la cual borra la tarea de la base de datos y le pasamos la id
-
       setTasks(Tasks.filter((task) => task.id !== id));//actualizamos las tareas para que se vea reflejado en pantalla , lo hacemo con in filter el cual deja todas las tareas que no sean igual al id que le pasamos 
 
     } catch (error) {
@@ -81,6 +81,21 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
     }
   };
 
+  const All = () => { 
+    loadTasks();
+  }
+
+  const Soples = async () => {  
+    setTasks(Tasks.filter((task) => task.done === 0))
+  }
+
+  const Completed = () => {
+
+    setTasks(Tasks.filter((task) => task.done === 1))
+    
+  }
+  
+
   return ( //retornamos las funciones con la etiqueta TaskContext.Porvider pasamos las funciones en el value y pasamos el children que son los multiples componentes que van acceder a estas
     
     <TaskContext.Provider
@@ -92,6 +107,9 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
         createTasks,
         update,
         updateDone,
+        All,
+        Soples,
+        Completed,
       }}
     >
       {children}
