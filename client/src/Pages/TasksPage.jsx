@@ -12,7 +12,7 @@ import "./css/TasksPage.css";
 const TasksPage = () => {
 
   // llamamos del contexto las funciones para cargar las funciones 
-  const { Tasks, loadTasks } = useTasks(); 
+  const { Tasks, loadTasks,sss } = useTasks(); 
 
   // Resivimos en Active el valor de localStorage (true/false) para cambiar el tema
   const [Active] = useLocalStorage("darkTheme", true);
@@ -40,6 +40,10 @@ const TasksPage = () => {
 
   // Resivimos en Search, el valor Search del LocalStorage
   const [Search] = useLocalStorage("Search", "");
+
+
+  
+
 
 
   // hacemos un esto para poder hacer la condicional, en caso de no haber tareas y renderizar las tareas
@@ -84,11 +88,20 @@ const TasksPage = () => {
     // si newTasksWithSearch.length es igual  a cero
     if (newTasksWithSearch.length === 0) return <h2 className="Notasksyet">No tasks yet</h2>; 
     
+
     // si newTasksWithSearch no es igual a cero recorremos con un map
     return (
 
-
-      <DragDropContext onDragEnd={(result) => console.log(result)}> 
+      <DragDropContext onDragEnd={(result) => { 
+        const { source, destination } = result
+        if (!destination) { 
+          return;
+        }
+        if (source.index === destination.index && source.droppableId === destination.droppableId) {
+          return;
+        }
+        sss(source,destination);
+      }}> 
         
         <Droppable droppableId="droppable"> 
           {(providedDrop)=> (
@@ -98,12 +111,10 @@ const TasksPage = () => {
             >
               {
                 newTasksWithSearch.map((task,index) => (  
-                     
                   <TaskCard task={task} key={task.id} index={index} />
-                
                 ))     
               }
-              
+            
               {providedDrop.placeholder}
             </div>
           )}

@@ -81,6 +81,20 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
     }
   };
 
+
+  const reorder = (list, startIndex, endIndex) => { 
+    const result = [...list];
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result
+  }
+
+  const sss = (source,destination) => {
+    setTasks(prevTasks => reorder(prevTasks, source.index , destination.index))
+  }
+
+
   return ( //retornamos las funciones con la etiqueta TaskContext.Porvider pasamos las funciones en el value y pasamos el children que son los multiples componentes que van acceder a estas
     
     <TaskContext.Provider
@@ -92,6 +106,7 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
         createTasks,
         update,
         updateDone,
+        sss
       }}
     >
       {children}

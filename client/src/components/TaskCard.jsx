@@ -6,7 +6,7 @@ import { useLocalStorage } from 'usehooks-ts'
 import "./css/TaskCard.css";
 import { Draggable } from "react-beautiful-dnd";
 
-const TaskCard = ({ task,index }) => {
+const TaskCard = ({ task ,index }) => {
   
   const { DeleteTask, updateDone, } = useTasks(); // llamamos las funcione que vienen de context
 
@@ -22,7 +22,10 @@ const TaskCard = ({ task,index }) => {
   return (
     <Draggable key={task.id.toString()} draggableId={task.id.toString()} index={index}> 
       {(providedDrag) => (            
-        <div {...providedDrag.draggableProps} ref={providedDrag.innerRef} {...providedDrag.dragHandleProps} className={Active? "TaskCard" : "TaskCardDarth"}>
+        <div {...providedDrag.draggableProps}
+          ref={providedDrag.innerRef}
+          {...providedDrag.dragHandleProps}
+          className={Active ? "TaskCard" : "TaskCardDarth"}>
           <div className="TasCard_Checktitle">
             <span>
 
