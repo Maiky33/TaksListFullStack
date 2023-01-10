@@ -7,7 +7,6 @@ import axios from "axios"; //usamos axios para hacer la coneccion al backend
 export const getTasksRequest = async () =>
   await axios.get("http://localhost:4000/tasks");
 
-
 export const getTaskRequest = async (id) =>
   await axios.get(`http://localhost:4000/tasks/${id}`)
 

@@ -1,7 +1,7 @@
 import TaskCard from "../components/TaskCard";
 import TaskFilter from "../components/TaksFilter";
 import TasksCalendar from "../components/TasksCalendar";
-
+import {DragDropContext,Droppable} from 'react-beautiful-dnd'
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { useTasks } from "../context/TaskContext";
@@ -43,7 +43,7 @@ const TasksPage = () => {
 
 
   // hacemos un esto para poder hacer la condicional, en caso de no haber tareas y renderizar las tareas
-  const renderMain = () => {
+  const AllTasks = () => {
 
     // Creamos variable
     let newTask = [];
@@ -75,6 +75,7 @@ const TasksPage = () => {
       }else{
         return false 
       }
+      
     })
 
     
@@ -84,8 +85,37 @@ const TasksPage = () => {
     if (newTasksWithSearch.length === 0) return <h2 className="Notasksyet">No tasks yet</h2>; 
     
     // si newTasksWithSearch no es igual a cero recorremos con un map
-    return newTasksWithSearch.map((task) => <TaskCard task={task} key={task.id} />); 
+    return (
+
+
+      <DragDropContext onDragEnd={(result) => console.log(result)}> 
+        
+        <Droppable droppableId="droppable"> 
+          {(providedDrop)=> (
+            <div {...providedDrop.droppableProps}
+              ref={providedDrop.innerRef}
+              className={Active ? "Container_task" : "Container_taskDart"}
+            >
+              {
+                newTasksWithSearch.map((task,index) => (  
+                     
+                  <TaskCard task={task} key={task.id} index={index} />
+                
+                ))     
+              }
+              
+              {providedDrop.placeholder}
+            </div>
+          )}
+          
+        </Droppable>
+
+      </DragDropContext>     
+    )
+      
   };
+
+
 
   return (// Enviamos por parametros a <TaskFilter/> las funciones 
     <>
@@ -97,10 +127,9 @@ const TasksPage = () => {
         />
         <TasksCalendar />
       </div>
-
-      <div className={Active ? "Container_task" : "Container_taskDart"}>
-        {renderMain()}
-      </div>
+        
+      <AllTasks/>            
+              
     </>
     // al final llamamos la funcion renderMain() para retornar las tareas o el mensaje en caso de que no las alla
   );
