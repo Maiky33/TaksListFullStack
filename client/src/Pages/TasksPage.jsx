@@ -107,7 +107,6 @@ const TasksPage = () => {
           {(providedDrop)=> (
             <div {...providedDrop.droppableProps}
               ref={providedDrop.innerRef}
-              className={Active ? "Container_task" : "Container_taskDart"}
             >
               {
                 newTasksWithSearch.map((task,index) => (  
@@ -138,8 +137,11 @@ const TasksPage = () => {
         />
         <TasksCalendar />
       </div>
+
+      <div className={Active ? "Container_task" : "Container_taskDart"}> 
+        <AllTasks/>            
+      </div>
         
-      <AllTasks/>            
               
     </>
     // al final llamamos la funcion renderMain() para retornar las tareas o el mensaje en caso de que no las alla
