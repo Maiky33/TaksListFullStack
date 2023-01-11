@@ -92,7 +92,8 @@ const TasksPage = () => {
     // si newTasksWithSearch no es igual a cero recorremos con un map
     return (
 
-      <DragDropContext onDragEnd={(result) => { 
+      //react-dnd
+      <DragDropContext onDragEnd={(result) => { //funcion para actualizar orden de las tareas
         const { source, destination } = result
         if (!destination) { 
           return;
@@ -100,7 +101,7 @@ const TasksPage = () => {
         if (source.index === destination.index && source.droppableId === destination.droppableId) {
           return;
         }
-        sss(source,destination);
+        sss(source,destination); //funcion actualiza tareas desde el context
       }}> 
         
         <Droppable droppableId="droppable"> 

@@ -12,7 +12,7 @@
 }
 
 .dartmode{ 
-    background: rgb(45, 53, 70);
+    background: rgb(20, 61, 150);
     background: linear-gradient(90deg, rgba(45, 53, 70, 1) 0%, rgba(24, 24, 52, 1) 100%);
     padding: 50px 150px;
 }

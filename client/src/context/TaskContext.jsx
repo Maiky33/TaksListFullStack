@@ -82,7 +82,7 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
   };
 
 
-  const reorder = (list, startIndex, endIndex) => { 
+  const reorder = (list, startIndex, endIndex) => { //Funcion actualizar tareas
     const result = [...list];
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
@@ -91,7 +91,7 @@ export const TaskContextProvider = ({ children }) => {//exportamos esta funcion 
   }
 
   const sss = (source,destination) => {
-    setTasks(prevTasks => reorder(prevTasks, source.index , destination.index))
+    setTasks(prevTasks => reorder(prevTasks, source.index , destination.index))//actualiza tareas
   }
 
 
