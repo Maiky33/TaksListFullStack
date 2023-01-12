@@ -52,7 +52,7 @@ const TaskCard = ({ task ,index }) => {
           <p className="description">{task.description}</p>
 
           <div className="TaskCard_DateButtons">
-            <p className="date">{moment(task.createAt).format('YYYY-MM-DD')}</p>
+            <p className="date">{moment(task.createAt).format('DD / MM / YYYY')}</p>
             <div className={Active? "TaskCard_DateButtons__buttons" : "TaskCard_DateButtons__buttonsDart"}>
               <button onClick={() => navegate(`/edit/${task.id}`)}>
                 <RxPencil2 />

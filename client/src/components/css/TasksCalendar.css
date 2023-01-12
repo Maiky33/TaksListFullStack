@@ -1,8 +1,7 @@
 .Calendar_clock{  
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 20px;
     
     width: 500px;
     padding: 20px;
@@ -14,9 +13,8 @@
 
 .Calendar_clockDart{    
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 20px;
     
     width: 500px;
     padding: 20px;
@@ -26,16 +24,19 @@
     color: #ececec;
 }
 
-.materialui{
-    background-color:#cfc0c0;
-    height: 50px;
-    border-radius: 10px;
-}
-
 .Calentar_Column{   
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.fecha{  
+    font-size: 30px;
+    font-family: 'Courier New';
+}
+.hora{  
+    font-size: 30px;
+    font-family: 'Courier New';
 }
 
 
@@ -52,12 +53,10 @@
     .Calendar_clock {
         display: flex;
         flex-direction: column;
-        gap: 70px;
     }
     .Calendar_clockDart {
         display: flex;
         flex-direction: column;
-        gap: 70px;
     }
 }
 
