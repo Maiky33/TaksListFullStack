@@ -3,6 +3,7 @@ import { RxCrossCircled, RxPencil2 } from "react-icons/rx";
 import { useTasks } from "../context/TaskContext";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from 'usehooks-ts'
+import moment from 'moment'
 import "./css/TaskCard.css";
 import { Draggable } from "react-beautiful-dnd";
 
@@ -51,7 +52,7 @@ const TaskCard = ({ task ,index }) => {
           <p className="description">{task.description}</p>
 
           <div className="TaskCard_DateButtons">
-            <p className="date">{task.createAt}</p>
+            <p className="date">{moment(task.createAt).format('YYYY-MM-DD')}</p>
             <div className={Active? "TaskCard_DateButtons__buttons" : "TaskCard_DateButtons__buttonsDart"}>
               <button onClick={() => navegate(`/edit/${task.id}`)}>
                 <RxPencil2 />
