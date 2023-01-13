@@ -15,7 +15,7 @@ app.use(cors());//para poder comunicarnos desde backend
 
 app.use(indexRoutes);
 app.use(taksRoutes);
-app.use(express.static(join(__dirname, '../client/build')))
+app.use(express.static(join(__dirname, '/client/build')))
 
 app.listen(PORT);
 console.log(`server is running on ${PORT}`);
