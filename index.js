@@ -1,10 +1,10 @@
 import express from "express";
 import cors from 'cors';
-import { PORT } from "./config.js";
+import { PORT } from "./server/config.js";
 import {dirname,join} from 'path'
 import {fileURLToPath} from 'url'
-import indexRoutes from "./routes/index.routes.js";
-import taksRoutes from "./routes/task.routes.js";
+import indexRoutes from "./server/routes/index.routes.js";
+import taksRoutes from "./server/routes/task.routes.js";
 
 const app = express();
 
