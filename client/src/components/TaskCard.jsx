@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from 'usehooks-ts'
 import moment from 'moment'
 import "./css/TaskCard.css";
-import { Draggable } from "react-beautiful-dnd";
+import {
+  Draggable
+} from '@hello-pangea/dnd';
 
 const TaskCard = ({ task ,index }) => {
   

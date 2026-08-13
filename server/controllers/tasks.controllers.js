@@ -11,7 +11,8 @@ export const getTasks = async(req, res) => {
     const [result] = await connection.query('SELECT * FROM task ORDER BY createAt ASC')
     res.json(result);
   }catch(error){  
-    return res.status(500).json({message:"error Conection"})
+    console.error('Error en getTasks:', error);
+    return res.status(500).json({message:"error Conection", details: error.message})
   }
 
 };
@@ -25,8 +26,9 @@ export const getTask = async(req, res) => {
 
     if(result.length === 0) return res.status(404).json({message:'Task Not Found'})
     res.json(result[0])
-  }catch{ 
-    return res.status(500).json({message:"error Conection"})
+  }catch(error){ 
+    console.error('Error en getTask:', error);
+    return res.status(500).json({message:"error Conection", details: error.message})
   }
 };
 
@@ -52,8 +54,9 @@ export const createTask = async (req, res) => {
       description,
     });
 
-  }catch{ 
-    return res.status(500).json({message:"error Conection"})
+  }catch(error){ 
+    console.error('Error en createTask:', error);
+    return res.status(500).json({message:"error Conection", details: error.message})
   }
 };
 
@@ -67,8 +70,9 @@ export const updateTask = async (req, res) => {
       req.params.id
     ]);
     res.json(result)
-  }catch{ 
-    return res.status(500).json({message:"error Conection"})
+  }catch(error){ 
+    console.error('Error en updateTask:', error);
+    return res.status(500).json({message:"error Conection", details: error.message})
   }
 };
 
@@ -83,8 +87,9 @@ export const deleteTask = async(req, res) => {
     if(result.affectedRows === 0) return res.status(404).json({message:'Task Not Found'})
     return res.sendStatus(204);
     
-  }catch{ 
-    return res.status(500).json({message:"error Conection"})
+  }catch(error){ 
+    console.error('Error en deleteTask:', error);
+    return res.status(500).json({message:"error Conection", details: error.message})
   }
 
 };

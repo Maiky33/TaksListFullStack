@@ -1,7 +1,10 @@
 import TaskCard from "../components/TaskCard";
 import TaskFilter from "../components/TaksFilter";
 import TasksCalendar from "../components/TasksCalendar";
-import {DragDropContext,Droppable} from 'react-beautiful-dnd'
+import {
+  DragDropContext,
+  Droppable
+} from '@hello-pangea/dnd';
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { useTasks } from "../context/TaskContext";
