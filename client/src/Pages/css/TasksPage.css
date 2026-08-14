@@ -27,12 +27,36 @@
   color: #ececec;
 }
 
-@media screen and (max-width:322px) {
-  .Container_Filter_Calendar{ 
-    display: flex;
-    justify-content: center;
+@media screen and (min-height:1080px) {
+  .Container_task{
+    height: 610px;
+  }
+  .Container_taskDart{  
+    height: 610px;
   }
 }
+
+@media screen and (min-height: 923px) {
+  .Container_taskDart{  
+    height: 300px;
+  }
+}
+
+@media screen and (min-height:848px) {
+  .Container_task {
+    height: 410px;
+  }
+  .Container_taskDart {
+    height: 410px;
+  }
+}
+
+@media screen and (max-height:720px) {  
+  .Container_taskDart{  
+    height: 230px;
+  }
+} 
+
 
 @media screen and (max-width:355px) { 
   .Container_task{  
@@ -49,21 +73,11 @@
   }
 }
 
-@media screen and (min-height:848px) {
-  .Container_task {
-    height: 410px;
-  }
-  .Container_taskDart {
-    height: 410px;
+
+
+@media screen and (max-width:322px) {
+  .Container_Filter_Calendar{ 
+    display: flex;
+    justify-content: center;
   }
 }
-
-@media screen and (min-height:1080px) {
-  .Container_task{
-    height: 610px;
-  }
-  .Container_taskDart{  
-    height: 610px;
-  }
-}
-

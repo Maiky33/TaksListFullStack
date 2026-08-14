@@ -120,7 +120,7 @@
 
 @media screen and (max-height:926px) {
     .Container_From {
-        height: 766px;
+        height: auto;
     }
 }
 

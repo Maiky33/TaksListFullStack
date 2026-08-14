@@ -76,7 +76,7 @@
 
 @media screen and (max-width:814px) {
   .Nav_input {
-    width: 50px;
+    width: 45%;
     height: 40px;
     padding: 0px 20px;
     background-color: #434357;
@@ -87,7 +87,17 @@
   }
 }
 
+@media screen and (max-width:546px) {
+  .Nav_input {
+    width: 35%;
+  }
+}
+
+
 @media screen and (max-width:440px) {
+  .Nav_input {
+    width: 45%;
+  }
   .Nav_icon {
     display: none;
   }
